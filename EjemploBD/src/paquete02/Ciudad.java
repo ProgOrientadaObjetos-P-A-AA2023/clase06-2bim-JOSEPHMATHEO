@@ -10,6 +10,7 @@ package paquete02;
  * @author reroes
  */
 public class Ciudad {
+    
     private String nombre;
     private int poblacion;
     
@@ -37,7 +38,7 @@ public class Ciudad {
     @Override
     public String toString(){
         String data = String.format("Nombre: %s\n"
-                + "Población: %d\n", 
+                + "Población: %d\n\n", 
                 obtenerNombre(), obtenerPoblacion());
         return data;
     }
