@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package paquete01;
 
 import java.sql.Statement;
@@ -15,12 +11,7 @@ import java.util.ArrayList;
 import paquete02.Ciudad;
 
 public class Enlace {
-
-    /**
-     * Connect to a sample database
-     *
-     * @return
-     */
+    
     private Connection conn;
     private ArrayList<Ciudad> lista;
 
@@ -63,7 +54,9 @@ public class Enlace {
     }
 
     public void establecerDataCiudad() {
-
+        
+        lista = new ArrayList<>();
+        
         try {
 
             establecerConexion();
@@ -71,22 +64,7 @@ public class Enlace {
             String data = "Select * from Ciudad;";
 
             ResultSet rs = statement.executeQuery(data);
-
-            obtenerConexion().close();
-
-        } catch (SQLException e) {
-            System.out.println("Exception: insertarCiudad");
-            System.out.println(e.getMessage());
-
-        }
-
-    }
-
-    public ArrayList<Ciudad> obtenerDataCiudad() {
-
-        try {
             
-            establecerConexion();
             while (rs.next()) {
 
                 Ciudad miCiudad = new Ciudad(rs.getString("nombre"),
@@ -103,6 +81,10 @@ public class Enlace {
 
         }
 
+    }
+
+    public ArrayList<Ciudad> obtenerDataCiudad() {
+        
         return lista;
 
     }
